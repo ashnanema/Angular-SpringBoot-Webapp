@@ -1,0 +1,29 @@
+<div ngNativeValidate class="container">
+    <div class="row">
+      <strong for="search" class="mt-2 mb-2">Search Product</strong>
+        <input type="text" class="form-control" placeholder="Search By Brand or Type of Product (Ex- only, h&m, levis,,top, Tshirt)" name="productName" [(ngModel)]="searchContent" required>
+      <div class="col-lg- col-sm-12 col-xs-12">
+
+        <button type="botton" class="btn btn-info mt-2 mb-2" (click)="collection()">Search  </button>
+      </div>
+     </div>
+     <div class="text-danger bold" *ngIf="length">{{message}}</div>
+
+    <div class="row card-deck text-center" *ngIf="product!=null" >
+        <div *ngFor="let productInfo of product" class="col-lg-4 ">
+          <div class="card mb-4">
+            <img height="40%" max-width="50%" class="card-img-top" src="{{productInfo.productIcon}}" alt="{{productInfo.productName}}">
+            <div class="card-body">
+              <h4 class="card-title ">{{productInfo.productName}}</h4>
+              <div class="text-left">
+                <p class="card-test"><strong>Description: </strong>{{productInfo.productDescription}}</p>
+                <p class="card-text"><strong>Price: </strong>{{productInfo.productPrice}}</p>
+              </div>
+              <br>
+              <a routerLink="/productDetails/{{productInfo.productId}}" class="btn btn-primary btn-lg mb-2"
+              >View Details</a>
+              <ng-template #offBlock><a class="btn btn-secondary btn-lg disabled">Unavailable</a></ng-template>
+            </div>
+          </div>
+        </div>
+      </div>

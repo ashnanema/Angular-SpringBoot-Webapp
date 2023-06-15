@@ -1,0 +1,119 @@
+
+<br>
+<!--Section: Block Content-->
+<section class="mb-5">
+
+    <div class="row">
+      <div class="col-md-6 mb-4 mb-md-0">
+
+        <div id="mdb-lightbox-ui"></div>
+
+        <div class="mdb-lightbox">
+
+          <div class="row product-gallery mx-1">
+
+            <div class="col-12 mb-0 mt-2">
+              <figure class="view overlay rounded z-depth-1 main-img">
+                <div
+                  data-size="710x823">
+                  <img  class="rounded" src="{{productInfo.productIcon}}"
+                    class="img-fluid z-depth-1">
+              </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-6 mt-2">
+
+        <h2>{{productInfo.productBrand}} </h2>
+        <p class="mb-2 text-muted text-uppercase small">{{productInfo.productName}}</p>
+
+        <p><span class="mr-1"><strong>Rs: {{productInfo.productPrice}} only</strong></span></p>
+        <b>Description: </b>
+        <p class="pt-1">{{productInfo.productDescription}}</p>
+        <div class="table-responsive">
+          <table class="table table-sm table-borderless mb-0">
+            <tbody>
+              <tr>
+                <th class="pl-0 w-25" scope="row"><strong>Model :                               </strong></th>
+                <td>{{productInfo.productBrand}} Originals XX2 {{productInfo.productName}} </td>
+              </tr>
+              <tr>
+                <th class="pl-0 w-25" scope="row"><strong>Color :</strong></th>
+                <td>Shown in image</td>
+              </tr>
+              <tr>
+                <th class="pl-0 w-25" scope="row"><strong>Delivery :</strong></th>
+                <td>India</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <hr>
+        <div class="table-responsive mb-2">
+          <table class="table table-sm table-borderless">
+            <tbody>
+              <tr>
+                <td class="pl-0 pb-0 w-25">Quantity</td>
+                <td class="pb-0">Select size</td>
+              </tr>
+              <tr>
+                <td class="pl-0">
+                  <div class="def-number-input number-input safari_only mb-0">
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                      class="minus"></button>
+                    <input class="quantity" min="0" name="quantity" value="1" type="number">
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                      class="plus"></button>
+                  </div>
+                </td>
+                <td>
+                  <div class="mt-1">
+                    <div class="form-check form-check-inline pl-0">
+                      <input type="radio" class="form-check-input" id="small" name="materialExampleRadios"
+                        checked>
+                      <label class="form-check-label small text-uppercase card-link-secondary"
+                        for="small">Small</label>
+                    </div>
+                    <div class="form-check form-check-inline pl-0">
+                      <input type="radio" class="form-check-input" id="medium" name="materialExampleRadios">
+                      <label class="form-check-label small text-uppercase card-link-secondary"
+                        for="medium">Medium</label>
+                    </div>
+                    <div class="form-check form-check-inline pl-0">
+                      <input type="radio" class="form-check-input" id="large" name="materialExampleRadios">
+                      <label class="form-check-label small text-uppercase card-link-secondary"
+                        for="large">Large</label>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+            <b for="exampleInput mb-3">Enter Pincode &nbsp;&nbsp;</b>
+            <input type="pincode" class="form-control pl-0 pb-0 w-25" [(ngModel)]="givenPin" aria-describedby="pincodeHelp" placeholder="">
+            <div *ngIf="available; else elseBlock">
+               <span> Available at given PinCode within 10-15 days</span>
+              </div>
+              <ng-template #elseBlock>
+                <span>Please enter Deliverable pin</span>
+              </ng-template>
+            <div>
+
+                <button type="button" class="btn btn-info btn-md mt-2 mb-2" (click)="checkAvailability()">Check</button>
+            </div>
+
+
+        </div>
+        <button type="button" class="btn btn-primary btn-md mt-2 mb-2">Buy now</button>
+
+      </div>
+    </div>
+
+  </section>
+  <!--Section: Block Content-->
+

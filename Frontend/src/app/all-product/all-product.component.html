@@ -1,0 +1,48 @@
+<h3>Filter</h3>
+  <nav class="navbar navbar-expand-lg ">
+    <div class="navbar-nav">
+      <h5 style="margin-bottom: 10%;">By Brand</h5>
+      <nav class="navbar navbar-expand-lg" style="margin-left:-13%;">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" (click)="filterByBrand('hm')">H&M</a>
+          <a class="nav-item nav-link" (click)="filterByBrand('only')"> ONLY</a>
+          <a class="nav-item nav-link" (click)="filterByBrand('levis')">Levis</a>
+        </div>
+      </nav>
+      <h5 style="margin-left: 10%;"> By Type</h5>
+      <nav class="navbar navbar-expand-lg" style="margin-left:-11.5%;">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" (click)="filterByType('top')">TOPS</a>
+          <a class="nav-item nav-link" (click)="filterByType('tshirt')">TShirt</a>
+        </div>
+      </nav>
+      <h5 style="margin-left: 10%;">By Price</h5>
+      <nav class="navbar navbar-expand-lg" style="margin-left:-11.5%;">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" (click)="filterByPrice('1000')">upto 1000</a>
+          <a class="nav-item nav-link" (click)="filterByPrice('3000')">upto 3000</a>
+        </div>
+      </nav>
+    </div>
+  </nav>
+
+
+  <div class="row card-deck text-center">
+    <div *ngFor="let productInfo of result" class="col-lg-4 ">
+      <div class="card mb-4"  >
+        <img height="40%" max-width="50%" class="card-img-top" src="{{productInfo.productIcon}}" alt="{{productInfo.productName}}">
+        <div class="card-body">
+          <h4 class="card-title ">{{productInfo.productName}}</h4>
+          <div class="text-left">
+            <p class="card-test"><strong>Description: </strong>{{productInfo.productDescription}}</p>
+            <p class="card-text"><strong>Price: </strong>{{productInfo.productPrice}}</p>
+
+          </div>
+        </div>
+        <br>
+        <a routerLink="/productDetails/{{productInfo.productId}}" class="btn btn-primary">
+              View Details</a>
+      </div>
+    </div>
+  </div>
+

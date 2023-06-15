@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-primary bg-dark">
+  <a class="navbar-brand" *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/login">Home</a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" *ngIf="authenticationService.isUserLoggedIn()" routerLink="/allProduct">Home</a>
+      <a class="nav-item nav-link" *ngIf="authenticationService.isUserLoggedIn()" routerLink="/search">Search</a>
+      <a class="nav-item nav-link" *ngIf="!authenticationService.isUserLoggedIn()" routerLink="registration">Register</a>
+      <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()"  (click)="loggedOut()" >Logout</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet> </router-outlet>
+</div>
